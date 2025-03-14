@@ -64,4 +64,13 @@ describe("Application component test", () => {
     expect(jobLocationSelect).toHaveValue("");
     expect(jobLocationSelect).toHaveDisplayValue("Select a country");
   });
+
+  test("renders the terms and conditions checkbox", () => {
+    render(<Application />);
+
+    const termsCheckbox = screen.getByRole("checkbox", { name: /terms/i });
+    expect(termsCheckbox).toBeInTheDocument();
+    expect(termsCheckbox).not.toBeChecked();
+    expect(termsCheckbox).toHaveAccessibleName(/terms and conditions/i);
+  });
 });
