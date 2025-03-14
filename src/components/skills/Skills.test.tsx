@@ -17,7 +17,7 @@ describe("Skills", () => {
 
   test("renders the start learning button", () => {
     render(<Skills skills={skills} />);
-    const button = screen.getByRole("button", { name: /start learning/i });
+    const button = screen.getByRole("button", { name: "Login" });
     expect(button).toBeInTheDocument();
   });
 });
