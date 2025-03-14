@@ -46,4 +46,11 @@ describe("Application component test", () => {
     expect(nameInput).toBeInTheDocument();
     expect(nameInput).toHaveValue("Trabajador");
   });
+
+  test("renders the bio textarea", () => {
+    render(<Application />);
+
+    const bioTextarea = screen.getByLabelText(/bio/i, { selector: "textarea" });
+    expect(bioTextarea).toBeInTheDocument();
+  });
 });
