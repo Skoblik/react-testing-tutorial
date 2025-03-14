@@ -1,5 +1,6 @@
 import "./App.css";
-import { Application } from "./components/Application";
+import { Application } from "./components/application/Application";
+import { Skills } from "./components/skills/Skills";
 import { AppProviders } from "./providers/AppProviders";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <AppProviders>
       <div className="App">
         <Application />
+        <Skills skills={["HTML", "CSS"]} />
       </div>
     </AppProviders>
   );
