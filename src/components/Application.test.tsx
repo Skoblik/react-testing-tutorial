@@ -53,4 +53,15 @@ describe("Application component test", () => {
     const bioTextarea = screen.getByLabelText(/bio/i, { selector: "textarea" });
     expect(bioTextarea).toBeInTheDocument();
   });
+
+  test("renders the job location select element", () => {
+    render(<Application />);
+
+    const jobLocationSelect = screen.getByLabelText(/job location/i, {
+      selector: "select",
+    });
+    expect(jobLocationSelect).toBeInTheDocument();
+    expect(jobLocationSelect).toHaveValue("");
+    expect(jobLocationSelect).toHaveDisplayValue("Select a country");
+  });
 });
