@@ -20,7 +20,7 @@ describe("Application component test", () => {
     expect(heading).toBeInTheDocument();
   });
 
-  test("verify the image is rendered", () => {
+  test("renders image", () => {
     render(<Application />);
 
     const image = screen.getByAltText("a mountain view");
@@ -37,5 +37,13 @@ describe("Application component test", () => {
     const customElement = screen.getByTestId("custom-element");
     expect(customElement).toBeInTheDocument();
     expect(customElement).toHaveTextContent(/^Custom HTML element$/);
+  });
+
+  test("renders the name input field", () => {
+    render(<Application />);
+
+    const nameInput = screen.getByLabelText(/name/i, { selector: "input" });
+    expect(nameInput).toBeInTheDocument();
+    expect(nameInput).toHaveValue("Trabajador");
   });
 });
