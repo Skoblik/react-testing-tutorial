@@ -73,4 +73,12 @@ describe("Application component test", () => {
     expect(termsCheckbox).not.toBeChecked();
     expect(termsCheckbox).toHaveAccessibleName(/terms and conditions/i);
   });
+
+  test("renders the submit button", () => {
+    render(<Application />);
+
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+    expect(submitButton).toBeInTheDocument();
+    expect(submitButton).toBeDisabled();
+  });
 });
