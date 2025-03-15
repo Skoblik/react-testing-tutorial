@@ -5,7 +5,7 @@ import user from "@testing-library/user-event";
 describe("Counter", () => {
   test("renders correctly", () => {
     render(<Counter />);
-    const countElement = screen.getByRole("heading");
+    const countElement = screen.getByRole("heading", { level: 1 });
     expect(countElement).toBeInTheDocument();
     const incrementButton = screen.getByRole("button", { name: "Increment" });
     expect(incrementButton).toBeInTheDocument();
@@ -15,10 +15,16 @@ describe("Counter", () => {
     expect(setButton).toBeInTheDocument();
   });
 
-  test("renders a count of 0", () => {
+  test("renders a count of 0 in heading", () => {
     render(<Counter />);
-    const countElement = screen.getByRole("heading");
+    const countElement = screen.getByRole("heading", { level: 1 });
     expect(countElement).toHaveTextContent("0");
+  });
+
+  test("renders a count of 0 in ammount input", () => {
+    render(<Counter />);
+    const amountInput = screen.getByRole("spinbutton");
+    expect(amountInput).toHaveValue(0);
   });
 
   //   test('renders a count of 1 after clicking the increment button', async () => {
