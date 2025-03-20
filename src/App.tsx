@@ -10,7 +10,7 @@ function App() {
     <AppProviders>
       <div className="App">
         <Application />
-        <Skills skills={["HTML", "CSS"]} />
+        <Skills skills={["HTML", "CSS", "TS"]} />
         <Counter />
         <CounterTwo count={1} handleIncrement={() => {}} />
       </div>
