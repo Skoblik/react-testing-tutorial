@@ -3,6 +3,7 @@ import { Skills } from "./Skills";
 
 describe("Skills", () => {
   const skills = ["HTML", "CSS", "JavaScript"];
+
   test("renders correctly", () => {
     render(<Skills skills={skills} />);
     const listElement = screen.getByRole("list");
