@@ -5,6 +5,7 @@ export const Skills = (props: SkillsProps) => {
   const { skills } = props;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // Simulate a login after 1 second
   useEffect(() => {
     setTimeout(() => {
       setIsLoggedIn(true);
