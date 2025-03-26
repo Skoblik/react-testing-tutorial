@@ -13,7 +13,7 @@ function App() {
         <Application />
         <Skills skills={["HTML", "CSS", "TS"]} />
         <Counter />
-        <Users />
+        <Users isFailRequest={false} />
         {/* <CounterTwo count={1} handleIncrement={() => {}} /> */}
       </div>
     </AppProviders>

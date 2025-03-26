@@ -1,14 +1,28 @@
 import { useState, useEffect } from "react";
+import { UsersProps } from "./Users.types";
 
-export const Users = () => {
+export function Users({ isFailRequest = false }: UsersProps) {
   const [users, setUsers] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data.map((user: { name: string }) => user.name)))
-      .catch(() => setError("Error fetching users"));
-  }, []);
+    const fetchUsers = async () => {
+      try {
+        if (isFailRequest) {
+          throw new Error("Error fetching users");
+        }
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        const data = await response.json();
+        setUsers(data.map((user: { name: string }) => user.name));
+      } catch {
+        setError("Error fetching users");
+      }
+    };
+
+    fetchUsers();
+  }, [isFailRequest]);
   return (
     <div>
       <h1>Users</h1>
@@ -20,4 +34,4 @@ export const Users = () => {
       </ul>
     </div>
   );
-};
+}
