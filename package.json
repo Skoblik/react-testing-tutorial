@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.0.10",
-    "msw": "^2.7.3"
+    "msw": "^2.7.3",
+    "util": "^0.12.5"
   }
 }
