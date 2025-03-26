@@ -8,4 +8,10 @@ describe("Users Component", () => {
     expect(textElement).toBeInTheDocument();
     //await screen.findByText("Leanne Graham");
   });
+
+  test("renders a list of users", async () => {
+    render(<Users />);
+    const users = await screen.findAllByRole("listitem");
+    expect(users).toHaveLength(10);
+  });
 });
